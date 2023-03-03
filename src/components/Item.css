@@ -1,0 +1,50 @@
+.itemBody {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.cardStyles{
+    display: -webkit-box;
+    line-height: 26px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-align: center;
+    align-self: center;
+    height: 58px;
+    border-bottom: 1px solid #6c6c6c;
+}
+
+.cardBodyStyles{
+    height: 270px;
+}
+
+.textStyles{
+    display: -webkit-box;
+    line-height: 30px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.detailsButton{
+    display: flex;
+    width: 100%;
+    height: 54px;
+    border-top: 1px solid #e2e2e2;
+    text-decoration: none;
+    color: black;
+    background-color: #e9e9e9;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailsButton:hover{
+    background-color: #4c4c4c;
+    color: white;
+}
+
+.detailsButton:active{
+    color: white;
+ }
