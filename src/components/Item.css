@@ -17,7 +17,7 @@
 }
 
 .cardBodyStyles{
-    height: 270px;
+    height: 280px;
 }
 
 .textStyles{
@@ -34,15 +34,15 @@
     height: 54px;
     border-top: 1px solid #e2e2e2;
     text-decoration: none;
-    color: black;
-    background-color: #e9e9e9;
+    color: white;
+    background-color: #4c4c4c;
     align-items: center;
     justify-content: center;
 }
 
 .detailsButton:hover{
-    background-color: #4c4c4c;
-    color: white;
+    background-color: #F5E101;
+    color: black;
 }
 
 .detailsButton:active{

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  
+::-webkit-scrollbar-thumb {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+}
+  
+  
+::-moz-scrollbar {
+    width: 10px;
+}
+  
+  
+::-moz-scrollbar-thumb {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+a:active{
+    color: white;
+}
+
