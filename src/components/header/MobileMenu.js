@@ -23,8 +23,8 @@ export const MobileMenu= ()=>{
         <Navbar.Toggle className="toggleMenu" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="/movies">Movies</Nav.Link>
+            <Nav.Link href="tvSeries">TV-Series</Nav.Link>
           </Nav>
         </Navbar.Collapse> 
         {isLogged && <BsSearch className="searchIcon" onClick={()=>setHeaderSearchMode(true)}/>}

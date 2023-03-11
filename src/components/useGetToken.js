@@ -14,7 +14,9 @@ export const useGetToken = (e)=>{
          .then(res=>{
             sessionStorage.setItem("token",res.data.token)
             setIsLogged(true)
-            history("/listado")})
+            history("/movies")})
+            
+           
     }
 
 return {getToken}

@@ -23,9 +23,11 @@ function App() {
         </HeaderSearchModeContext>
         <Routes>
           <Route path={"/"} element={<LoginForm />} />
-          <Route path={"/listado"} element={<ItemListContainer />} />
-          <Route path={"/movie/:movieId"} element={<ItemDetails />} />
-          <Route path={"/results/:query"} element={<Results />} />
+          <Route path={"/:itemListType"} element={<ItemListContainer />} />
+          <Route path={"/movies/:contentId"} element={<ItemDetails />} />
+          <Route path={"/tvSeries/:contentId"} element={<ItemDetails />} />
+          <Route path={"/movies/results/:query"} element={<Results />} />
+          <Route path={"/tvSeries/results/:query"} element={<Results />} />
         </Routes>
         <Footer />
       </LoginContextProvider>

@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export const Results = ()=>{
 
-    const [movieRequestResults, setMovieRequestResults] = useState([])
+    const [RequestResults, setRequestResults] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const { isLogged } = useContext(loginContext) 
     const { query } = useParams()
@@ -18,10 +18,27 @@ export const Results = ()=>{
     useEffect(()=>{
         setIsLoading(true)
         window.scrollTo(0,0)
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&query=${query}`)
+
+        const getContentType = ()=>{
+            if(window.location.toString().toLowerCase().includes("movie")) return "movies"
+            if(window.location.toString().toLowerCase().includes("serie"))return "tv-series"
+        }
+        
+        const itemListType = getContentType()
+
+        console.log(typeof itemListType, typeof query)
+        
+        itemListType == "movies" ?
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&query=${query}`)
+                .then(res=>res.json())
+                .then(res=>setRequestResults(res.results))
+                .then(res=>setIsLoading(false))   
+                                 :
+       
+        fetch(`https://api.themoviedb.org/3/search/tv?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&query=${query}`)
             .then(res=>res.json())
-            .then(res=>setMovieRequestResults(res.results))
-            .then(res=>setIsLoading(false))        
+            .then(res=>setRequestResults(res.results))
+            .then(res=>setIsLoading(false))
     },[query])
    
 
@@ -38,10 +55,10 @@ export const Results = ()=>{
                     
                     :
                     
-                        (movieRequestResults.length == 0 && !isLoading)
+                        (RequestResults.length == 0 && !isLoading)
                         ? 
                             <div className="container containerStyles" >
-                                <h3>{`No results for ${query}`}</h3>
+                                <h3 className="alertText">{`No results for ${query}`}</h3>
                             </div>
                     
                         :
@@ -49,8 +66,8 @@ export const Results = ()=>{
                         <div className="container containerStyles" >
                             <div className="row rowStyles">
                                 {
-                                    movieRequestResults.map((movie, index)=>{
-                                        return <Item movie={movie} key={index}/>  
+                                    RequestResults.map((content, index)=>{
+                                        return <Item content={content} key={index} index={index} />  
                                     })
                                 }
                             </div>

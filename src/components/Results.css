@@ -9,7 +9,8 @@
     color: #F5E101; 
 }
 
-h3{
+.alertText{
+    overflow-y: hidden;
     text-align: center;
 }
 

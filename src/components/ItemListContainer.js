@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react"
-import { Navigate } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { loginContext } from "../context/LoginContextProvider"
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -12,15 +12,26 @@ export const ItemListContainer = ()=>{
     const [movieData, setMovieData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const { isLogged } = useContext(loginContext) 
+    const { itemListType } = useParams()
     
     
     useEffect(()=>{
         setIsLoading(true)
         window.scrollTo(0,0)
-        fetch("https://api.themoviedb.org/3/discover/movie?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate")
-            .then(res=>res.json())
-            .then(res=>setMovieData(res.results))
-            .then(res=>setIsLoading(false))
+        
+        if (itemListType == "movies"){
+            fetch("https://api.themoviedb.org/3/discover/movie?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate")
+                .then(res=>res.json())
+                .then(res=>setMovieData(res.results))
+                .then(res=>setIsLoading(false))
+        }
+
+        if (itemListType == "tvSeries"){
+            fetch("https://api.themoviedb.org/3/discover/tv?api_key=d3c0215c2ca34a0fad2322c5e5f70ab4&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0")
+                .then(res=>res.json())
+                .then(res=>setMovieData(res.results))
+                .then(res=>setIsLoading(false))
+        }
     },[])
 
     
@@ -40,8 +51,8 @@ export const ItemListContainer = ()=>{
                     <div className="container containerStylesItemListContainer">
                         <div className="row rowStyles">
                             {
-                                movieData.map((movie, index)=>{
-                                    return <Item movie={movie} key={index}/> 
+                                movieData.map((content, index)=>{
+                                    return <Item content={content} key={index} index={index} /> 
                                 })
                             }
                         </div>
