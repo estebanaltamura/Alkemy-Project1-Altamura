@@ -9,6 +9,7 @@ import { LoginContextProvider } from "./context/LoginContextProvider";
 import { HeaderSearchModeContext } from './context/headerSearchModeContext'; 
 import { Results } from "./components/Results";
 
+import "./global.css"
 
 
 

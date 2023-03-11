@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useGetToken } from "./useGetToken"
 import swal from '@sweetalert/with-react';
+import "./useLoginValidator.css"
 
 export const useLoginValidator = (e)=>{
 
@@ -58,8 +59,9 @@ export const useLoginValidator = (e)=>{
         } 
         
         if (userName !== "challenge@alkemy.org" || password !== "react"){
-            swal(
-                <h1>Nombre de usario y/o contraseña incorrectos</h1>
+            swal(<div className="alertContainer">
+                    <h1>Nombre de usario y/o contraseña incorrectos</h1>
+                </div>
             )
             return
         }

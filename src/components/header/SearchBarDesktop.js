@@ -25,7 +25,7 @@ const searchIconCickHandler = (e)=>{
 
     return(
         <div className="searchBarDesktopContainer"> 
-            <form onSubmit={searchSubmitHandler} autocomplete="off"> 
+            <form onSubmit={searchSubmitHandler} autoComplete="off"> 
                 <input ref={inputElement} name= "input" placeholder="Search Movies" className="searchInputDesktop"></input>
             </form>
             <BsSearch className="searchIconDesktop" onClick={searchIconCickHandler}/>
